@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* permitir que a medida do tamanho da caixa seja medida atraves do tamanho da borda*/
+
+}
+:root{
+
+    --primary-color: #fff;
+    --bg-url: url(../img/bg-mobile.jpg);
+    --stok-color: rgba(255, 255, 255, 0.5);
+    --suface-color: rgba(255, 255, 255, 0.05);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --hover-color: rgba(255, 255, 255, 0.2);
+    --moonstar-url: url(../img/MoonStars.svg);
+}
+.light{
+
+    --primary-color: #000;
+    --bg-url: url(../img/bg-mobile-light.jpg);
+    --stok-color: rgba(0, 0, 0, 0.5);
+    --suface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.1);
+    --hover-color: rgba(0, 0, 0, 0.2);
+    --moonstar-url: url(../img/Sun.svg);
+
+    
+}
+body{
+
+    background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+
+    /*background-repeat: no-repeat; /* permite não repetir a imagem*/
+    /*background-position: top center; /* posiciona a imagem no centro começando do top*/
+    /*background-size: cover; /* a imagem cobre toda tela*/
+
+}
+body *{
+
+    font-family: "Inter", sans-serif;
+    color: var(--primary-color);
+}
+#container{
+
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+}
+#profile{
+
+    text-align: center;
+    padding: 5px;
+    
+}
+#profile img{
+
+    width: 100px;
+    /* o margin : auto não centraliza o img porq é do tipo display inline, 
+    em elementos inline não se pode colocar margin: auto*/
+
+}
+#profile p{
+    
+    font-size: 16px;
+    font-weight: 500px;
+    line-height: 25px;
+    margin: 8px;
+    
+}
+
+#switch{
+
+    position: relative;
+    width: 64px;
+    margin: 8px auto;
+    
+}
+#switch button{
+    background-color: #fff;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: #fff var(--moonstar-url) no-repeat  center;
+    position: absolute;
+    top: 46px;
+    z-index: 1;
+    right: 1;
+    transform: translateY(-50px);
+    animation: slid-back .2s;
+
+}
+#switch button:hover{
+   outline: 8px solid var(--suface-color);
+}
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background-color: var(--suface-color);
+    border: 1px solid var(--stok-color);
+    backdrop-filter: blur(4px);
+    border-radius: 999px;
+}
+.light #switch button{
+
+    animation: slid-in .4s forwards;
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* permite dar espaço entre os elementos n dando espaço encima nem por baixo*/
+}
+ul li a{
+
+    text-decoration: none;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background-color: var(--surface-color-hover);
+    border: 1px solid var(--stok-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    font-weight: bold;
+
+    transition: background 0.2s; 
+}
+ul li a:hover{
+
+    background-color: var(--suface-color);
+    border: 1.5px solid var(--primary-color);
+       
+}
+/* estilizando o social midea*/
+#social{
+    display: flex;
+    padding:18px 0;
+    font-size: 24px;
+    justify-content: center; 
+}
+#social a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-radius: 50%;
+    transition:  background .2s;
+    
+}
+#social a:hover{
+    background-color: var(--hover-color);  
+}
+
+
+footer{
+   text-align: center;
+   font-size: 14px;
+}
+@media (min-width: 700px) {
+
+    :root{
+
+        --bg-url: url(../img/bg-desktop.jpg);
+
+
+    }
+    .light{
+
+        --bg-url: url(../img/bg-desktop-light.jpg);
+    }
+    
+}
+/* trabalhando com o animations*/
+@keyframes slid-in{
+
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes slid-back{
+
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
+    }
+}
